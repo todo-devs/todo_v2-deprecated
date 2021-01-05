@@ -1,16 +1,11 @@
-# todo
+# TODO
 
-A new Flutter project.
+[![tests](https://github.com/todo-devs/todo/workflows/tests/badge.svg?branch=main)](https://github.com/todo-devs/todo/actions?query=workflow%3Atests)
+[![Last commit](https://img.shields.io/github/last-commit/todo-devs/todo.svg?style=flat)](https://github.com/todo-devs/todo/commits)
+[![GitHub commit activity](https://img.shields.io/github/commit-activity/m/todo-devs/todo)](https://github.com/todo-devs/todo/commits)
+[![Github Stars](https://img.shields.io/github/stars/todo-devs/todo?style=flat&logo=github)](https://github.com/todo-devs/todo/stargazers)
+[![Github Forks](https://img.shields.io/github/forks/todo-devs/todo?style=flat&logo=github)](https://github.com/todo-devs/todo/network/members)
+[![Github Watchers](https://img.shields.io/github/watchers/todo-devs/todo?style=flat&logo=github)](https://github.com/todo-devs/todo)
+[![GitHub contributors](https://img.shields.io/github/contributors/todo-devs/todo)](https://github.com/todo-devs/todo/graphs/contributors)
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Aplicación auxiliar para ayudar al usuario con los servicios de ETECSA.
