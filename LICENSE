@@ -1,0 +1,55 @@
+Licencia Pública de Tecnologías Libres (LPTL) versión 1.0
+Copyright © 2021 TODO App Community
+
+Se permite a cualquier persona natural o jurídica utilizar, duplicar y distribuir
+este acuerdo de licencia, pero no se permite modificar su contenido.
+
+I. DEFINICIONES
+
+A los efectos de este documento, se definirá:
+  a) “obra” como el resultado de un trabajo de creación intelectual de naturaleza tecnológica;
+  b) “titular” como la entidad o las entidades autoras de la obra;
+  c) “entidad” como cualquier persona natural o jurídica;
+  d) “licenciatario” como cualquier entidad que obtenga un ejemplar de la obra y acepte su licencia;
+  e) “licencia” como el documento contractual donde el titular establece los términos del acuerdo y dispone las condiciones de explotación de su obra por el licenciatario;
+  f) “licencia privativa” como cualquier acuerdo de licencia donde el titular incluya términos legales de derecho de autor, marcas registradas, patentes u otros con el propósito de impedir al licenciatario el ejercicio libre y gratuito de los derechos de uso, estudio, modificación o distribución de la obra;
+  g) “código” como el conjunto de especificaciones técnicas e instrucciones en lenguaje de programación no ofuscado, que se requieren para estudiar, modificar, producir y configurar la obra;
+  h) “formato abierto” como aquella forma de representar o almacenar el código que garantice el acceso libre y gratuito a éste, evitando el requerimiento de métodos y medios tecnológicos cubiertos por licencias privativas;
+  i) “ofuscar” como cualquier forma de dificultar intencionalmente la comprensión del código;
+  j) “producir” como el proceso tecnológico de transformación de la obra a cualquier otra forma diferente al código;
+  k) “contribución” como cualquier modificación al código que el licenciatario destine al titular para su evaluación y posible integración a la obra;
+  l) “colaborador” como cualquier licenciatario que realice contribuciones de código;
+  m) “obra derivada” como el uso del código por el licenciatario como base para modificaciones que no se destinarán al titular como contribuciones;
+  n) “uso modular” como el uso de la obra como parte de un sistema compuesto por diferentes obras cubiertas por sus respectivas licencias;
+  o) “distribución” como cualquier forma de propagar la obra en su totalidad o en parte a otras entidades, excluyendo los casos de mero traslado o retransmisión como intermediario;
+  p) “representación de datos” como cualquier forma impresa de mostrar información;
+  q) “red” como un conjunto de equipos de cómputo interconectados; y
+  r) “repositorio” como un lugar de almacenamiento de código.
+
+II. ACEPTACIÓN
+
+El ejercicio de cualesquiera de los derechos que el titular concede sobre la obra, implica que la entidad acepta íntegramente este acuerdo de licencia, con lo cual se convierte en licenciatario. La entidad que rechace este acuerdo de licencia no se considerará un licenciatario y por tanto, no podrá ejercer ninguno de los derechos que el titular concede en este acuerdo de licencia.
+
+III. CONDICIONES
+
+El titular concede al licenciatario gratuitamente y con carácter no exclusivo los derechos globales de utilizar, analizar, mostrar, duplicar, modificar, producir, distribuir, comercializar la obra, y ser reconocido por sus contribuciones, bajo las siguientes condiciones:
+  1. Cada ejemplar de la obra incluirá el texto completo de esta licencia y la notificación de copyright del titular. Todas las unidades de código y otras partes sustanciales de la obra incluirán una referencia a ambos.
+  2. La distribución de la obra en cualquier forma requerirá la inclusión gratuita del código en un formato abierto, sea mediante algún medio físico de almacenamiento o representación de datos, o mediante un repositorio en una red de acceso público.
+  3. Toda contribución de código se realizará bajo esta misma licencia. De integrarse a la obra, el colaborador recibirá la debida atribución en el código y en la sección de créditos de la documentación de la obra.
+  4. Podrán realizarse obras derivadas bajo las siguientes condiciones:
+    a) Se preservará esta misma licencia. En el caso de uso modular, esto aplicará a los módulos cubiertos por esta licencia; el resto deberá incluir claramente la debida identificación de la licencia que utilizan.
+    b) No se ofuscará el código, ni se aplicarán términos legales o medidas tecnológicas que limiten el ejercicio de los derechos que esta licencia concede.
+    c) Se incluirá en un lugar destacado del código y la documentación una referencia a la obra original, con la debida atribución al titular de la misma.
+    d) Se utilizará para la distribución un nombre claramente diferente al de la obra original.
+
+IV. TERMINACIÓN
+
+Este acuerdo de licencia mantendrá su vigencia siempre y cuando el licenciatario cumpla las disposiciones de la licencia. La violación de cualquier parte de este acuerdo por el licenciatario implicará la cancelación inmediata de su licencia con la correspondiente pérdida de cualquier derecho de explotación de la obra, y además podrá penarse severamente por la ley. Sin embargo, si el licenciatario vuelve a cumplir las disposiciones de la licencia, recuperará todos los derechos que la licencia concede.
+
+V. GARANTÍAS Y RESPONSABILIDADES
+
+A MENOS QUE SE DISPONGA LO CONTRARIO EN UN ACUERDO POR ESCRITO, EL TITULAR PROPORCIONA LA OBRA “TAL CUAL” ESPERANDO QUE SEA ÚTIL, PERO SIN GARANTÍAS DE NINGÚN TIPO, INCLUYENDO PERO NO LIMITÁNDOSE A LAS GARANTÍAS DE CALIDAD SATISFACTORIA Y NO INFRACCIÓN DE PATENTES O PRIVILEGIOS COMERCIALES.
+
+TANTO EL TITULAR COMO EL LICENCIATARIO PODRÁN REALIZAR ACUERDOS POR ESCRITO PARA OFRECER DERECHOS Y GARANTÍAS ADICIONALES SOBRE LA OBRA, SIEMPRE Y CUANDO ESTOS ACUERDOS NO ANULEN NINGUNA PARTE DE ESTA LICENCIA, Y LAS ENTIDADES INVOLUCRADAS EN TALES ACUERDOS ASUMAN PLENA RESPONSABILIDAD LEGAL POR LAS OBLIGACIONES CONTRAÍDAS.
+
+HASTA EL EXTREMO MÁXIMO PERMITIDO POR LA LEY APLICABLE, EN NINGÚN CASO SERÁN LEGALMENTE RESPONSABLES EL TITULAR O LOS COLABORADORES POR CUALQUIER DAÑO QUE SURJA DE ALGUNA MANERA COMO CONSECUENCIA O EN CONEXIÓN CON EL USO QUE EL LICENCIATARIO HAGA DE LA OBRA, INCLUSO DE ALERTARSE SOBRE LA POSIBILIDAD DE TALES DAÑOS.
