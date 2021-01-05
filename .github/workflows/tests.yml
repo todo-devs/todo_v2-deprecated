@@ -49,11 +49,11 @@ jobs:
             echo Fail conventions section
             exit 1
           fi
-          if (( $DOCUMENTATION < $DOCUMENTATION_MAX ))
-          then
-            echo Fail documentation section
-            exit 1
-          fi
+          # if (( $DOCUMENTATION < $DOCUMENTATION_MAX ))
+          # then
+          #   echo Fail documentation section
+          #   exit 1
+          # fi
           # if (( $PLATFORMS < $PLATFORMS_MAX ))
           # then
           #   echo Fail platforms section
