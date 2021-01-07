@@ -7,3 +7,5 @@ class ParseUssdCodeException implements Exception {
     this.map,
   });
 }
+
+class UssdCodesCacheException implements Exception {}
