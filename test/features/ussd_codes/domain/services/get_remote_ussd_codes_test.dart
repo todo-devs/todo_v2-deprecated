@@ -9,12 +9,12 @@ import 'package:todo/features/ussd_codes/domain/services/services.dart';
 class MockUssdCodesRepository extends Mock implements IUssdCodesRepository {}
 
 void main() {
-  GetUssdCodes service;
+  GetRemoteUssdCodes service;
   MockUssdCodesRepository mockUssdCodesRepository;
 
   setUp(() {
     mockUssdCodesRepository = MockUssdCodesRepository();
-    service = GetUssdCodes(repository: mockUssdCodesRepository);
+    service = GetRemoteUssdCodes(repository: mockUssdCodesRepository);
   });
 
   final tData = [
@@ -32,7 +32,7 @@ void main() {
     final repositoryResult = Result(isOk: true, data: tData);
 
     // arrange
-    when(mockUssdCodesRepository.getUssdCodes())
+    when(mockUssdCodesRepository.getRemoteUssdCodes())
         .thenAnswer((_) async => repositoryResult);
 
     // act
@@ -40,7 +40,7 @@ void main() {
 
     // assert
     expect(result, repositoryResult);
-    verify(mockUssdCodesRepository.getUssdCodes());
+    verify(mockUssdCodesRepository.getRemoteUssdCodes());
     verifyNoMoreInteractions(mockUssdCodesRepository);
   });
 }
