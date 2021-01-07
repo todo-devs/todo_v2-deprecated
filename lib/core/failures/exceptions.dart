@@ -9,3 +9,9 @@ class ParseUssdCodeException implements Exception {
 }
 
 class UssdCodesCacheException implements Exception {}
+
+class UssdCodesServerException implements Exception {
+  final String message;
+
+  UssdCodesServerException(this.message);
+}
