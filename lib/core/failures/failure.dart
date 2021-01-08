@@ -8,3 +8,11 @@ class Failure extends Equatable {
   @override
   List<Object> get props => this.properties;
 }
+
+class UssdCodesCacheFailure extends Failure {}
+
+class UssdCodesServerFailure extends Failure {
+  final String message;
+
+  UssdCodesServerFailure(this.message);
+}
