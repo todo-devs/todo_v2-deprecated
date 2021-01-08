@@ -11,7 +11,11 @@ class ExampleRepository extends IExampleRepository {
       final model = await getMockExampleModel();
       return Result(isOk: true, data: model);
     } catch (e) {
-      return Result(isOk: false, failure: Failure([e.toString()]), data: null);
+      return Result(
+        isOk: false,
+        failure: Failure(message: e.toString()),
+        data: null,
+      );
     }
   }
 }
