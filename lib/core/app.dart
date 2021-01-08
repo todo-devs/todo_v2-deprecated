@@ -38,7 +38,7 @@ class AppWidget extends StatelessWidget {
       ],
       supportedLocales: localizationDelegate.supportedLocales,
       locale: localizationDelegate.currentLocale,
-      home: ExamplePage(),
+      home: HomePage(),
     );
   }
 }

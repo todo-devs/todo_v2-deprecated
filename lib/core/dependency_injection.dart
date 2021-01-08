@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:todo/core/network/network.dart';
@@ -8,6 +9,7 @@ import 'package:todo/features/todo/domain/services/services.dart';
 import 'package:todo/features/todo/presentation/blocs/blocs.dart';
 import 'package:todo/features/ussd_codes/data/datasources/datasources.dart';
 import 'package:todo/features/ussd_codes/data/repositories/repositories.dart';
+import 'package:todo/features/ussd_codes/domain/repositories/ussd_codes_repository.dart';
 import 'package:todo/features/ussd_codes/domain/services/services.dart';
 import 'package:todo/features/ussd_codes/presentation/bloc/bloc.dart';
 
@@ -76,7 +78,7 @@ class DependencyInjection {
     );
 
     //* ussd_codes
-    I.registerLazySingleton(
+    I.registerLazySingleton<IUssdCodesRepository>(
       () => UssdCodesRepository(
         ussdCodesAssetsDataSource: I(),
         ussdCodesLocalDataSource: I(),
@@ -86,19 +88,19 @@ class DependencyInjection {
 
     //! Data Sources
     //* ussd_codes
-    I.registerLazySingleton(
+    I.registerLazySingleton<IUssdCodesAssetsDataSource>(
       () => UssdCodesAssetsDataSource(
         assetsService: I(),
       ),
     );
 
-    I.registerLazySingleton(
+    I.registerLazySingleton<IUssdCodesLocalDataSource>(
       () => UssdCodesLocalDataSource(
         sharedPreferences: I(),
       ),
     );
 
-    I.registerLazySingleton(
+    I.registerLazySingleton<IUssdCodesRemoteDataSource>(
       () => UssdCodesRemoteDataSource(
         httpClient: I(),
       ),
@@ -106,8 +108,9 @@ class DependencyInjection {
 
     //! Core
     //* ussd_codes
+    final dio = await httpClient();
     I.registerLazySingleton(() => AssetsService());
-    I.registerLazySingleton(() => httpClient());
+    I.registerLazySingleton<Dio>(() => dio);
 
     //! External
     final sharedPreferences = await SharedPreferences.getInstance();
