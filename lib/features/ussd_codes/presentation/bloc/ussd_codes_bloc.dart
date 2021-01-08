@@ -36,7 +36,6 @@ class UssdCodesBloc extends Bloc<UssdCodesEvent, UssdCodesState> {
   ) async* {
     switch (event.runtimeType) {
       case GetAssetsUssdCodesEvent:
-        // yield LoadingUssdCodes();
         final result = await getAssetsUssdCodes(NoParams());
         if (result.isOk) {
           yield LoadedUssdCodes(items: result.data);
@@ -51,7 +50,6 @@ class UssdCodesBloc extends Bloc<UssdCodesEvent, UssdCodesState> {
           yield LoadedUssdCodes(items: result.data);
         } else {
           this.add(GetAssetsUssdCodesEvent());
-          // yield Error(message: result.failure.message);
         }
         break;
     }

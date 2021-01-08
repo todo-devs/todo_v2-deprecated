@@ -27,7 +27,16 @@ class AppDrawer extends StatelessWidget {
                           height: 75,
                         ),
                       ),
-                      Text(Keys.app_name.tr()),
+                      Text(
+                        Keys.app_name.tr(),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          color: Theme.of(context).brightness == Brightness.dark
+                              ? Colors.white
+                              : Colors.blue,
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -36,9 +45,7 @@ class AppDrawer extends StatelessWidget {
           ),
           Align(
             alignment: Alignment.topRight,
-            child: CycleThemeIconButton(
-              icon: Icons.wb_sunny,
-            ),
+            child: CycleThemeIconButton(icon: Icons.wb_sunny),
           ),
         ],
       ),

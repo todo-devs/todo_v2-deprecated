@@ -66,6 +66,11 @@ flutter:
     - assets/i18n/
     - assets/images/
 
+  fonts: 
+    - family: Montserrat
+      fonts:
+        - asset: assets/fonts/Montserrat-Regular.ttf
+
 flutter_icons:
   android: "launcher_icon"
   ios: false

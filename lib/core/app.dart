@@ -9,12 +9,32 @@ import 'package:todo/features/todo/presentation/pages/pages.dart';
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final dark = AppTheme(
+      id: "default_theme_dark",
+      description: "TODO Default Dark Theme",
+      data: ThemeData(
+        brightness: Brightness.dark,
+        accentColor: Colors.blue,
+        fontFamily: 'Montserrat',
+      ),
+    );
+
+    final light = AppTheme(
+      id: "default_light_theme",
+      description: "TODO Default Light Theme",
+      data: ThemeData(
+        brightness: Brightness.light,
+        accentColor: Colors.blue,
+        fontFamily: 'Montserrat',
+      ),
+    );
+
     return ThemeProvider(
       saveThemesOnChange: true,
       loadThemeOnInit: true,
       themes: [
-        AppTheme.dark(),
-        AppTheme.light(),
+        dark,
+        light,
       ],
       child: ThemeConsumer(
         child: AppWidget(),
