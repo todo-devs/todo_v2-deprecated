@@ -47,7 +47,8 @@ dependencies:
   
   # Http Client
   dio: ^3.0.10
-  device_proxy: ^0.0.3
+  device_proxy:
+    path: ./plugins/device_proxy
 
 dev_dependencies:
   flutter_test:
