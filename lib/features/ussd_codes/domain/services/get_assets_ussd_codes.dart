@@ -10,7 +10,7 @@ class GetAssetsUssdCodes implements IService<List<UssdItem>, NoParams> {
   GetAssetsUssdCodes({@required this.repository}) : assert(repository != null);
 
   @override
-  Future<Result<List<UssdItem>>> call(NoParams params) async {
-    return await repository.getAssetsUssdCodes();
+  Future<Result<List<UssdItem>>> call(NoParams params) {
+    return repository.getAssetsUssdCodes();
   }
 }

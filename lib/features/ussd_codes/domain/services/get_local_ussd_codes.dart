@@ -10,7 +10,7 @@ class GetLocalUssdCodes implements IService<List<UssdItem>, NoParams> {
   GetLocalUssdCodes({@required this.repository}) : assert(repository != null);
 
   @override
-  Future<Result<List<UssdItem>>> call(NoParams params) async {
-    return await repository.getLocalUssdCodes();
+  Future<Result<List<UssdItem>>> call(NoParams params) {
+    return repository.getLocalUssdCodes();
   }
 }
