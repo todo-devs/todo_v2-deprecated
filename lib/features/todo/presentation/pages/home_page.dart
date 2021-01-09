@@ -48,56 +48,30 @@ class _HomePageState extends State<HomePage>
         body: Column(
           children: [
             SizedBox(
-              height: 10,
-            ),
-            TabBar(
-              controller: controller,
-              indicator: BoxDecoration(
-                borderRadius: BorderRadius.circular(100.0),
-                color: Colors.blue,
-              ),
-              isScrollable: true,
-              labelPadding: EdgeInsets.only(top: 0.5, bottom: 0.5),
-              unselectedLabelColor:
-                  Theme.of(context).brightness == Brightness.dark
-                      ? Colors.white
-                      : Colors.blue,
-              tabs: [
-                Container(
-                  height: 70,
-                  width: 75,
-                  child: Icon(
-                    Icons.phone,
-                    size: 40,
-                  ),
-                ),
-                Container(
-                  height: 70,
-                  width: 75,
-                  child: Icon(
-                    Icons.wifi,
-                    size: 40,
-                  ),
-                ),
-                Container(
-                  height: 70,
-                  width: 75,
-                  child: Icon(
-                    Icons.network_cell,
-                    size: 40,
-                  ),
-                ),
-              ],
+              height: 15,
             ),
             Expanded(
-              child: TabBarView(
-                controller: controller,
+              child: Column(
                 children: [
-                  UssdCodesPage(),
-                  Center(child: Text('Wifi')),
-                  Center(child: Text('Network')),
+                  AppTabBar(controller: controller),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Expanded(
+                    child: TabBarView(
+                      controller: controller,
+                      children: [
+                        UssdCodesPage(),
+                        Center(child: Text('Wifi')),
+                        Center(child: Text('Network')),
+                      ],
+                    ),
+                  ),
                 ],
               ),
+            ),
+            SizedBox(
+              height: 5,
             ),
           ],
         ),

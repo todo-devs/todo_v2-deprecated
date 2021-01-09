@@ -1,1 +1,1 @@
-export 'ussd_codes.dart';
+export 'ussd_item_widget.dart';
