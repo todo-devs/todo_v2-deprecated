@@ -1,12 +1,17 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cubanopensource.todo">
 
-   <uses-permission android:name="android.permission.INTERNET"/>
-   <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
    
    <application
         android:label="TODO"
         android:icon="@mipmap/launcher_icon">
+
+       <service android:name=".FloatingWindow" />
+
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

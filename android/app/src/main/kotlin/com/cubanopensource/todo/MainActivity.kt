@@ -9,6 +9,7 @@ import kotlin.collections.*
 import androidx.annotation.NonNull
 import androidx.core.content.ContextCompat
 import android.content.pm.PackageManager
+import android.provider.Settings
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel
@@ -31,8 +32,18 @@ class MainActivity : FlutterActivity() {
                 "getAndroidName" -> result.success(getAndroidName())
                 "callTo" -> result.success(callTo(call.arguments<String>()))
                 "callPermissionState" -> result.success(getCallPermissionState())
+                "getDrawPermissionState" -> result.success(getDrawPermissionState())
+                "reqDrawPermission" -> reqDrawPermission()
             }
         }
+
+        // Esto es solo para testing, el permiso se debe solicitar desde el frontend de la app
+        // cuando el usuario solicite activar el widget
+        if(!getDrawPermissionState()) {
+            reqDrawPermission()
+        }
+
+        startService(Intent(this, FloatingWindow::class.java))
     }
 
     private fun getWifiIP(): String? {
@@ -127,6 +138,20 @@ class MainActivity : FlutterActivity() {
     private fun reqCallPermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             requestPermissions(arrayOf(android.Manifest.permission.CALL_PHONE), 0)
+        }
+    }
+
+    private fun getDrawPermissionState(): Boolean {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+            return (Settings.canDrawOverlays(this))
+
+        return true
+    }
+
+    private fun reqDrawPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            val intent = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:${packageName}"))
+            startActivityForResult(intent, 1)
         }
     }
 }
