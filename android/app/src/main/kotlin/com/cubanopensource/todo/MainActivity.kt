@@ -1,5 +1,6 @@
 package com.cubanopensource.todo
 
+import android.app.PendingIntent
 import android.content.*
 import android.net.*
 import android.os.*
@@ -9,7 +10,11 @@ import kotlin.collections.*
 import androidx.annotation.NonNull
 import androidx.core.content.ContextCompat
 import android.content.pm.PackageManager
+import android.content.pm.ShortcutInfo
+import android.content.pm.ShortcutManager
+import android.graphics.drawable.Icon
 import android.provider.Settings
+import androidx.annotation.RequiresApi
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel
@@ -44,6 +49,10 @@ class MainActivity : FlutterActivity() {
         }
 
         startService(Intent(this, FloatingWindow::class.java))
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1) {
+            registerShortcuts()
+        }
     }
 
     private fun getWifiIP(): String? {
@@ -152,6 +161,36 @@ class MainActivity : FlutterActivity() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             val intent = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:${packageName}"))
             startActivityForResult(intent, 1)
+        }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.N_MR1)
+    private fun registerShortcuts() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1) {
+            val shortcutManager = getSystemService<ShortcutManager>(ShortcutManager::class.java)
+
+            val saldo = ShortcutInfo.Builder(context, "saldo")
+                    .setShortLabel("Saldo")
+                    .setLongLabel("Saldo")
+                    .setIcon(Icon.createWithResource(context, R.drawable.saldo))
+                    .setIntent(Intent(Intent.ACTION_CALL, Uri.parse("tel:*222${Uri.encode("#")}")))
+                    .build()
+
+            val bono = ShortcutInfo.Builder(context, "bono")
+                    .setShortLabel("Bono")
+                    .setLongLabel("Bono")
+                    .setIcon(Icon.createWithResource(context, R.drawable.bono))
+                    .setIntent(Intent(Intent.ACTION_CALL, Uri.parse("tel:*222*266${Uri.encode("#")}")))
+                    .build()
+
+            val datos = ShortcutInfo.Builder(context, "datos")
+                    .setShortLabel("Datos")
+                    .setLongLabel("Datos")
+                    .setIcon(Icon.createWithResource(context, R.drawable.datos))
+                    .setIntent(Intent(Intent.ACTION_CALL, Uri.parse("tel:*222*328${Uri.encode("#")}")))
+                    .build()
+
+            shortcutManager!!.dynamicShortcuts = Arrays.asList(saldo, bono, datos)
         }
     }
 }
