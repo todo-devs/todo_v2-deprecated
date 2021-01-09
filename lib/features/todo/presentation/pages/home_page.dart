@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:todo/features/todo/presentation/widgets/widgets.dart';
 import 'package:todo/features/ussd_codes/presentation/pages/pages.dart';
 import 'package:todo/core/i18n.dart';
@@ -26,6 +27,7 @@ class _HomePageState extends State<HomePage>
 
   @override
   Widget build(BuildContext context) {
+    timeDilation = 0.75;
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(

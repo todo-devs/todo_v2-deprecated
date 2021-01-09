@@ -48,6 +48,7 @@ class AppWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     var localizationDelegate = LocalizedApp.of(context).delegate;
     return GetMaterialApp(
+      defaultTransition: Transition.rightToLeftWithFade,
       debugShowCheckedModeBanner: false,
       title: Keys.app_name.tr(),
       theme: ThemeProvider.themeOf(context).data,

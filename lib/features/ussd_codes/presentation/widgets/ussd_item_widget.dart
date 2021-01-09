@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo/core/utils/icons.dart';
 import 'package:todo/features/ussd_codes/domain/entities/entities.dart';
-import 'package:todo/features/ussd_codes/presentation/bloc/ussd_codes_bloc.dart';
+import 'package:todo/features/ussd_codes/presentation/bloc/bloc.dart';
+import 'package:get/get.dart';
+import 'package:get/get_navigation/get_navigation.dart' as GetNV;
+import 'package:todo/features/ussd_codes/presentation/pages/pages.dart';
 
 class UssdItemWidget extends StatelessWidget {
   final UssdItem ussdItem;
@@ -15,6 +18,7 @@ class UssdItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      isThreeLine: (ussdItem.description.length > 33),
       title: Text(
         ussdItem.name,
         style: TextStyle(
@@ -50,7 +54,12 @@ class UssdItemWidget extends StatelessWidget {
         return () {};
       }
     } else if (ussdItem.type == "category") {
-      return () {};
+      return () {
+        Get.to(
+          UssdCategoryPage(ussdItem),
+          preventDuplicates: false,
+        );
+      };
     }
 
     throw Exception("Unknown UssdItem type ${ussdItem.type}");
