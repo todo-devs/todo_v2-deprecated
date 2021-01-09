@@ -38,6 +38,13 @@ class UssdItemWidget extends StatelessWidget {
           color: Colors.white,
         ),
       ),
+      trailing: ussdItem.type == 'category'
+          ? Icon(
+              Icons.arrow_forward_ios,
+              color: Colors.blue,
+              size: 16,
+            )
+          : null,
       onTap: _onTapAction(context),
     );
   }

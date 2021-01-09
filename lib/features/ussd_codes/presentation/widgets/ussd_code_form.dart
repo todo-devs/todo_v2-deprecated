@@ -172,6 +172,7 @@ class _UssdCodeFormState extends State<UssdCodeForm> {
                           labelText: field.name.toUpperCase(),
                           prefixIcon: Icon(
                             Icons.vpn_key,
+                            color: Colors.blue,
                           ),
                         ),
                         validator: (value) {
