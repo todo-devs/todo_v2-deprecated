@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get_it/get_it.dart';
 import 'package:todo/core/utils/icons.dart';
 import 'package:todo/features/ussd_codes/domain/entities/entities.dart';
+import 'package:todo/features/ussd_codes/domain/entities/ussd_code.dart';
 import 'package:todo/features/ussd_codes/presentation/bloc/bloc.dart';
+import 'package:get_it/get_it.dart';
 import 'package:todo/features/ussd_codes/presentation/widgets/widgets.dart';
 
-class UssdCategoryPage extends StatelessWidget {
-  final UssdCategory category;
+class UssdCodeFormPage extends StatelessWidget {
+  final UssdCode code;
 
-  UssdCategoryPage(this.category) : assert(category != null);
+  const UssdCodeFormPage({Key key, this.code}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,31 +24,37 @@ class UssdCategoryPage extends StatelessWidget {
         elevation: 0,
         centerTitle: true,
         title: Text(
-          category.name,
+          code.name,
           style: TextStyle(
             fontWeight: FontWeight.bold,
           ),
         ),
       ),
       body: BlocProvider(
-        create: (_) => GetIt.I.get<UssdCodesBloc>(),
-        child: SingleChildScrollView(
+        create: (context) => GetIt.I.get<UssdCodesBloc>(),
+        child: Center(
           child: Column(
             children: [
               SizedBox(
                 height: 15,
               ),
-              Icon(
-                strIcons[category.icon],
-                size: 82,
-                color: Theme.of(context).brightness == Brightness.dark
-                    ? Colors.white
-                    : Colors.blue,
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: UssdCodeForm(
+                    code: code.code,
+                    type: code.type,
+                    fields: code.fields,
+                    icon: Icon(
+                      strIcons[code.icon],
+                      size: 82,
+                      color: Theme.of(context).brightness == Brightness.dark
+                          ? Colors.white
+                          : Colors.blue,
+                    ),
+                  ),
+                ),
               ),
-              SizedBox(
-                height: 15,
-              ),
-              UssdCodesWidget(category.items),
               SizedBox(
                 height: 5,
               ),

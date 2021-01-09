@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:todo/core/platform_channels/platform_channels.dart';
 import 'package:todo/core/utils/icons.dart';
 import 'package:todo/features/ussd_codes/domain/entities/entities.dart';
-import 'package:todo/features/ussd_codes/presentation/bloc/bloc.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/get_navigation.dart' as GetNV;
 import 'package:todo/features/ussd_codes/presentation/pages/pages.dart';
@@ -48,10 +47,16 @@ class UssdItemWidget extends StatelessWidget {
       final item = ussdItem as UssdCode;
       if (item.fields.length == 0) {
         return () {
-          BlocProvider.of<UssdCodesBloc>(context).add(CallToEvent(item.code));
+          callTo(item.code);
         };
       } else {
-        return () {};
+        return () {
+          Get.to(
+            UssdCodeFormPage(
+              code: ussdItem,
+            ),
+          );
+        };
       }
     } else if (ussdItem.type == "category") {
       return () {

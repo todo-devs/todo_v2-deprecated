@@ -16,7 +16,7 @@ class _HomePageState extends State<HomePage>
   @override
   void initState() {
     super.initState();
-    controller = TabController(vsync: this, length: 3);
+    controller = TabController(vsync: this, length: 4);
   }
 
   @override
@@ -64,6 +64,7 @@ class _HomePageState extends State<HomePage>
                       controller: controller,
                       children: [
                         UssdCodesPage(),
+                        UssdDataPage(),
                         Center(child: Text('Wifi')),
                         Center(child: Text('Network')),
                       ],

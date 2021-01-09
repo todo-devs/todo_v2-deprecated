@@ -49,6 +49,10 @@ dependencies:
   dio: ^3.0.10
   device_proxy:
     path: ./plugins/device_proxy
+  
+  # Contact Picker
+  contact_picker:
+    path: ./plugins/contact_picker
 
 dev_dependencies:
   flutter_test:

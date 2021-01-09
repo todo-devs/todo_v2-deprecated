@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
-import 'package:todo/core/platform_channels/platform_channels.dart';
 import 'package:todo/core/services/iservice.dart';
 import 'package:todo/features/ussd_codes/domain/entities/entities.dart';
 import 'package:todo/features/ussd_codes/domain/services/services.dart';
@@ -52,10 +51,6 @@ class UssdCodesBloc extends Bloc<UssdCodesEvent, UssdCodesState> {
         } else {
           this.add(GetAssetsUssdCodesEvent());
         }
-        break;
-      case CallToEvent:
-        final number = (event as CallToEvent).number;
-        callTo(number);
         break;
     }
   }

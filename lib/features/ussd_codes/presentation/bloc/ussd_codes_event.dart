@@ -26,9 +26,3 @@ class SaveUssdCodesEvent extends UssdCodesEvent {
     this.hash,
   });
 }
-
-class CallToEvent extends UssdCodesEvent {
-  final String number;
-
-  CallToEvent(this.number) : assert(number != null);
-}

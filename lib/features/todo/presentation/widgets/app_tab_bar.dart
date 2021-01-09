@@ -27,7 +27,15 @@ class AppTabBar extends StatelessWidget {
           height: 64,
           width: 68,
           child: Icon(
-            Icons.phone,
+            Icons.phone_android_rounded,
+            size: 38,
+          ),
+        ),
+        Container(
+          height: 64,
+          width: 68,
+          child: Icon(
+            Icons.data_usage_rounded,
             size: 38,
           ),
         ),
