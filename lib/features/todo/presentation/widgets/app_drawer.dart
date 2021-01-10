@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:theme_provider/theme_provider.dart';
 import 'package:todo/core/i18n.dart';
+import 'package:todo/features/todo/presentation/pages/pages.dart';
+import 'package:get/get_core/get_core.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({
@@ -40,7 +43,20 @@ class AppDrawer extends StatelessWidget {
                     ],
                   ),
                 ),
-              )
+              ),
+              drawerTile(
+                'Cuentas',
+                Icons.account_circle_outlined,
+                () {},
+              ),
+              drawerTile(
+                'Ajustes',
+                Icons.settings_outlined,
+                () {
+                  Navigator.pop(context);
+                  Get.to(SettingsPage());
+                },
+              ),
             ],
           ),
           Align(
@@ -48,6 +64,25 @@ class AppDrawer extends StatelessWidget {
             child: CycleThemeIconButton(icon: Icons.wb_sunny),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget drawerTile(String title, IconData icon, Function onTap) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 10.0, right: 10.0),
+      child: ListTile(
+        leading: Icon(
+          icon,
+          size: 32,
+        ),
+        title: Text(
+          title,
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        onTap: onTap,
       ),
     );
   }

@@ -124,7 +124,7 @@ class FloatingWindow : Service() {
     }
 
     private fun getShowWidgetPreference(): Boolean {
-        return preferences.getBoolean("showWidget", true)
+        return preferences.getBoolean("showWidget", false)
     }
 
     private fun hideFloatWidget() {

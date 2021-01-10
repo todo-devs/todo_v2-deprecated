@@ -69,6 +69,7 @@ flutter:
     - config/ussd_codes.json
     - assets/i18n/
     - assets/images/
+    - LICENSE
 
   fonts: 
     - family: Montserrat

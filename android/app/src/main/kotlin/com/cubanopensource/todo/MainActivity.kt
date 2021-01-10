@@ -1,20 +1,21 @@
 package com.cubanopensource.todo
 
-import android.app.PendingIntent
+import android.app.*
 import android.content.*
+import android.content.pm.*
 import android.net.*
 import android.os.*
 import java.net.*
 import java.util.*
 import kotlin.collections.*
+
+import android.net.wifi.WifiManager
 import androidx.annotation.NonNull
 import androidx.core.content.ContextCompat
-import android.content.pm.PackageManager
-import android.content.pm.ShortcutInfo
-import android.content.pm.ShortcutManager
 import android.graphics.drawable.Icon
 import android.provider.Settings
 import androidx.annotation.RequiresApi
+
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel
@@ -23,29 +24,50 @@ import io.flutter.plugin.common.MethodChannel
 class MainActivity : FlutterActivity() {
     private val CHANNEL = "com.cubanopensource.todo"
     private lateinit var flEngine: FlutterEngine
+    lateinit var preferences: SharedPreferences
+    lateinit var wifiManager: WifiManager
 
     override fun configureFlutterEngine(@NonNull flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
+
+        preferences = applicationContext.getSharedPreferences("${packageName}_preferences", Activity.MODE_PRIVATE)
+        wifiManager = applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
 
         flEngine = flutterEngine
 
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, CHANNEL).setMethodCallHandler { call, result ->
             when (call.method) {
+                //! System info
                 "getWifiIp" -> result.success(getWifiIP())
                 "getInterfacesInfo" -> result.success(getInterfacesInfo())
                 "getBatteryLevel" -> result.success(getBatteryLevel())
                 "getAndroidName" -> result.success(getAndroidName())
+
+                //! Call to number
                 "callTo" -> result.success(callTo(call.arguments<String>()))
+                //! Call permissions handlers
                 "callPermissionState" -> result.success(getCallPermissionState())
+                "reqCallPermission" -> reqCallPermission()
+
+                //! Overlay permissions handlers
                 "getDrawPermissionState" -> result.success(getDrawPermissionState())
                 "reqDrawPermission" -> reqDrawPermission()
-            }
-        }
 
-        // Esto es solo para testing, el permiso se debe solicitar desde el frontend de la app
-        // cuando el usuario solicite activar el widget
-        if(!getDrawPermissionState()) {
-            reqDrawPermission()
+                //! Show Float Widget
+                "setTrueShowWidget" -> setTrueShowWidget()
+                "setFalseShowWidget" -> setFalseShowWidget()
+                "getShowWidgetPreference" -> result.success(getShowWidgetPreference())
+                
+                //! Turn on/off wifi
+                "turnOnWifi" -> turnOnWifi()
+                "turnOffWifi" -> turnOffWifi()
+                "isWifiEnabled" -> result.success(isWifiEnabled())
+                "getTurnOffWifiPreference" -> result.success(getTurnOffWifiPreference())
+                "setTrueTurnOffWifi" -> setTrueTurnOffWifi()
+                "setFalseTurnOffWifi" -> setFalseTurnOffWifi()
+                
+                else -> result.notImplemented()
+            }
         }
 
         startService(Intent(this, FloatingWindow::class.java))
@@ -55,6 +77,64 @@ class MainActivity : FlutterActivity() {
         }
     }
 
+    //! Turn on/off wifi
+    private fun turnOnWifi() {
+        wifiManager.isWifiEnabled = true
+    }
+
+    private fun turnOffWifi() {
+        if (getTurnOffWifiPreference())
+            wifiManager.isWifiEnabled = false
+    }
+
+    private fun getTurnOffWifiPreference(): Boolean {
+        return preferences.getBoolean("turnOffWifi", true)
+    }
+
+    private fun isWifiEnabled(): Boolean {
+        return wifiManager.isWifiEnabled
+    }
+
+    private fun setFalseTurnOffWifi() {
+        with(preferences.edit()) {
+            putBoolean("turnOffWifi", false)
+            apply()
+        }
+    }
+
+    private fun setTrueTurnOffWifi() {
+        with(preferences.edit()) {
+            putBoolean("turnOffWifi", true)
+            apply()
+        }
+    }
+
+    //! Show Float Widget
+    private fun setTrueShowWidget() {
+        if(!getDrawPermissionState()) {
+            reqDrawPermission()
+        }
+
+        if(getDrawPermissionState()) {
+            with(preferences.edit()) {
+                putBoolean("showWidget", true)
+                apply()
+            }
+        }
+    }
+
+    private fun setFalseShowWidget() {
+        with(preferences.edit()) {
+            putBoolean("showWidget", false)
+            apply()
+        }
+    }
+
+    private fun getShowWidgetPreference(): Boolean {
+        return preferences.getBoolean("showWidget", false)
+    }
+
+    //! Network info
     private fun getWifiIP(): String? {
         try {
             return getWifiAddress()
@@ -112,7 +192,8 @@ class MainActivity : FlutterActivity() {
 
         return result
     }
-
+    
+    //! Status battery
     private fun getBatteryLevel(): Int {
         val batteryLevel: Int
         batteryLevel = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -126,10 +207,12 @@ class MainActivity : FlutterActivity() {
         return batteryLevel
     }
 
+    //! Android name
     private fun getAndroidName(): String {
         return Build.VERSION.RELEASE;
     }
 
+    //! Call to number
     private fun callTo(number: String): Boolean {
         return if (getCallPermissionState()) {
             startActivity(Intent(Intent.ACTION_CALL, Uri.parse("tel:${Uri.encode(number)}")))
@@ -140,6 +223,7 @@ class MainActivity : FlutterActivity() {
         }
     }
 
+    //! Call permissions handlers
     private fun getCallPermissionState(): Boolean {
         return (ContextCompat.checkSelfPermission(this, android.Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED)
     }
@@ -150,6 +234,7 @@ class MainActivity : FlutterActivity() {
         }
     }
 
+    //! Overlay permissions handlers
     private fun getDrawPermissionState(): Boolean {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
             return (Settings.canDrawOverlays(this))
@@ -164,6 +249,7 @@ class MainActivity : FlutterActivity() {
         }
     }
 
+    //! Register app shortcuts
     @RequiresApi(Build.VERSION_CODES.N_MR1)
     private fun registerShortcuts() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1) {
