@@ -17,7 +17,7 @@ class UssdItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      isThreeLine: (ussdItem.description.length > 33),
+      isThreeLine: (ussdItem.description.length > 34),
       title: Text(
         ussdItem.name,
         style: TextStyle(
