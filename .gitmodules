@@ -1,0 +1,3 @@
+[submodule "selibrary"]
+	path = selibrary
+	url = https://github.com/todo-devs/selibrary.git
