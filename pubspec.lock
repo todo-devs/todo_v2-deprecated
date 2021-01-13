@@ -120,6 +120,20 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.2.0-nullsafety.3"
+  charts_common:
+    dependency: transitive
+    description:
+      name: charts_common
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.9.0"
+  charts_flutter:
+    dependency: "direct main"
+    description:
+      name: charts_flutter
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.9.0"
   checked_yaml:
     dependency: transitive
     description:
@@ -169,6 +183,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.1.1"
+  cookie_jar:
+    dependency: transitive
+    description:
+      name: cookie_jar
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.0.1"
   crypto:
     dependency: transitive
     description:
@@ -176,13 +197,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.1.5"
-  dart_casing:
+  csslib:
     dependency: transitive
     description:
-      name: dart_casing
+      name: csslib
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.0.1"
+    version: "0.16.2"
   dart_style:
     dependency: transitive
     description:
@@ -190,13 +211,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.3.10"
-  dart_utils:
-    dependency: transitive
-    description:
-      name: dart_utils
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "1.0.2"
   device_proxy:
     dependency: "direct main"
     description:
@@ -211,6 +225,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "3.0.10"
+  dio_cookie_manager:
+    dependency: transitive
+    description:
+      name: dio_cookie_manager
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.0.0"
   equatable:
     dependency: "direct main"
     description:
@@ -258,13 +279,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "6.1.1"
-  flutter_device_locale:
-    dependency: transitive
-    description:
-      name: flutter_device_locale
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "0.4.0"
   flutter_launcher_icons:
     dependency: "direct dev"
     description:
@@ -272,37 +286,11 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.8.1"
-  flutter_localizations:
-    dependency: "direct main"
-    description: flutter
-    source: sdk
-    version: "0.0.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_translate:
-    dependency: "direct main"
-    description:
-      name: flutter_translate
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "1.6.0"
-  flutter_translate_annotations:
-    dependency: "direct main"
-    description:
-      name: flutter_translate_annotations
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "1.0.1"
-  flutter_translate_gen:
-    dependency: "direct dev"
-    description:
-      name: flutter_translate_gen
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "1.2.4"
   flutter_web_plugins:
     dependency: transitive
     description: flutter
@@ -336,6 +324,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.2.0"
+  html:
+    dependency: transitive
+    description:
+      name: html
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.14.0+4"
   http_multi_server:
     dependency: transitive
     description:
@@ -363,7 +358,7 @@ packages:
       name: intl
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.17.0-nullsafety.2"
+    version: "0.16.1"
   io:
     dependency: transitive
     description:
@@ -553,6 +548,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.1.5"
+  selibrary:
+    dependency: "direct main"
+    description:
+      path: selibrary
+      relative: true
+    source: path
+    version: "0.0.1"
   shared_preferences:
     dependency: "direct main"
     description:

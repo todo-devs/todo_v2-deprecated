@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:todo/features/todo/presentation/widgets/widgets.dart';
 import 'package:todo/features/ussd_codes/presentation/pages/pages.dart';
-import 'package:todo/core/i18n.dart';
+import 'package:charts_flutter/flutter.dart' as charts;
+// import 'package:todo/core/i18n.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -39,7 +40,7 @@ class _HomePageState extends State<HomePage>
           elevation: 0,
           centerTitle: true,
           title: Text(
-            Keys.app_name.tr(),
+            'TODO',
             style: TextStyle(
               fontWeight: FontWeight.bold,
             ),
@@ -65,8 +66,23 @@ class _HomePageState extends State<HomePage>
                       children: [
                         UssdCodesPage(),
                         UssdDataPage(),
-                        Center(child: Text('Wifi')),
                         Center(child: Text('Network')),
+                        Center(
+                          child: charts.PieChart(
+                            [
+                              charts.Series(
+                                  id: 'Package',
+                                  domainFn: (e, _) => e,
+                                  measureFn: (e, _) => e,
+                                  data: [75])
+                            ],
+                            animate: true,
+                            // Configure the width of the pie slices to 60px. The remaining space in
+                            // the chart will be left as a hole in the center.
+                            defaultRenderer:
+                                charts.ArcRendererConfig(arcWidth: 60),
+                          ),
+                        ),
                       ],
                     ),
                   ),
