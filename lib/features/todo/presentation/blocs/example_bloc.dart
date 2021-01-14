@@ -42,7 +42,7 @@ class ExampleBloc extends IExampleBloc {
       if (result.isOk) {
         yield LoadedExampleState(result.data);
       } else {
-        yield ErrorExampleState(result.failure.properties[0]);
+        yield ErrorExampleState(result.failure.message);
       }
     }
   }

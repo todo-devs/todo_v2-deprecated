@@ -15,17 +15,44 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
+
+  # State Manager
   bloc: ^6.1.1
   flutter_bloc: ^6.1.1
+  
+  # Compare class for testing
   equatable: ^1.2.5
+  
+  # Dependency Injection
   get_it: ^5.0.3
-  json_annotation: ^3.1.1
-  theme_provider: ^0.4.0+1
+  
+  # GetX
   get: ^3.24.0
+  
+  # Json Serialization
+  json_annotation: ^3.1.1
+  
+  # Themes
+  theme_provider: ^0.4.0+1
+  
+  # Translations
   flutter_translate: ^1.6.0
-  meta: ^1.2.4
   flutter_translate_annotations: ^1.0.1
+  
+  # Class Annotations
+  meta: ^1.2.4
+  
+  # Local Storage
   shared_preferences: ^0.5.12+4
+  
+  # Http Client
+  dio: ^3.0.10
+  device_proxy:
+    path: ./plugins/device_proxy
+  
+  # Contact Picker
+  contact_picker:
+    path: ./plugins/contact_picker
 
 dev_dependencies:
   flutter_test:
@@ -42,6 +69,12 @@ flutter:
     - config/ussd_codes.json
     - assets/i18n/
     - assets/images/
+    - LICENSE
+
+  fonts: 
+    - family: Montserrat
+      fonts:
+        - asset: assets/fonts/Montserrat-Regular.ttf
 
 flutter_icons:
   android: "launcher_icon"

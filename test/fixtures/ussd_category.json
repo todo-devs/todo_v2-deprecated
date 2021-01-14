@@ -1,0 +1,24 @@
+{
+  "name": "Adelantar Saldo",
+  "description": "Recarga con un adelanto de saldo",
+  "icon": "monetization_on",
+  "type": "category",
+  "items": [
+    {
+      "name": "25 CUP",
+      "description": "Adelanta con $1.00 CUC de saldo",
+      "icon": "monetization_on",
+      "type": "code",
+      "fields": [],
+      "code": "*234*3*1*1#"
+    },
+    {
+      "name": "50 CUP",
+      "description": "Adelanta con $2.00 CUC de saldo",
+      "icon": "monetization_on",
+      "type": "code",
+      "fields": [],
+      "code": "*234*3*1*2#"
+    }
+  ]
+}
