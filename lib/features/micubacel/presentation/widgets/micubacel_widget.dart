@@ -14,46 +14,58 @@ class MiCubacelWidget extends StatelessWidget {
       create: (_) {
         return GetIt.I.get<MicubacelBloc>()..add(LoadMicubacelData());
       },
-      child: Center(
-        child: BlocBuilder<MicubacelBloc, MicubacelState>(
-          builder: (context, state) {
-            switch (state.runtimeType) {
-              case LoadedMicubacelData:
-                final client = (state as LoadedMicubacelData).client;
+      child: BlocBuilder<MicubacelBloc, MicubacelState>(
+        builder: (context, state) {
+          switch (state.runtimeType) {
+            case LoadedMicubacelData:
+              final client = (state as LoadedMicubacelData).client;
 
-                return MiCubacelInfo(client: client);
-              case MiCubacelError:
-                final message = (state as MiCubacelError).message;
-                return Text(message);
-              case NotActiveUser:
-                return ListTile(
-                  title: Text('Agregue una cuenta'),
-                  leading: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(100),
+              return MiCubacelInfo(client: client);
+            case MiCubacelError:
+              final message = (state as MiCubacelError).message;
+              return Text(message);
+            case NotActiveUser:
+              return Column(
+                children: [
+                  ListTile(
+                    title: Text('Agregue una cuenta'),
+                    leading: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(100),
+                        color: Colors.blue,
+                      ),
+                      height: 64,
+                      width: 57,
+                      child: Icon(
+                        Icons.account_circle,
+                        color: Colors.white,
+                        size: 32,
+                      ),
+                    ),
+                    trailing: Icon(
+                      Icons.add,
                       color: Colors.blue,
                     ),
-                    height: 64,
-                    width: 57,
-                    child: Icon(
-                      Icons.account_circle,
-                      color: Colors.white,
+                    onTap: () {
+                      Get.to(CubacelAccountFormPage());
+                    },
+                  ),
+                  IconButton(
+                    icon: Icon(
+                      Icons.refresh,
                       size: 32,
                     ),
-                  ),
-                  trailing: Icon(
-                    Icons.add,
-                    color: Colors.blue,
-                  ),
-                  onTap: () {
-                    Get.to(CubacelAccountFormPage());
-                  },
-                );
-              default:
-                return LoadingWidget();
-            }
-          },
-        ),
+                    onPressed: () {
+                      BlocProvider.of<MicubacelBloc>(context)
+                          .add(UpdateMicubacelData());
+                    },
+                  )
+                ],
+              );
+            default:
+              return LoadingWidget();
+          }
+        },
       ),
     );
   }

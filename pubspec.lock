@@ -120,20 +120,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.2.0-nullsafety.3"
-  charts_common:
-    dependency: transitive
-    description:
-      name: charts_common
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "0.9.0"
-  charts_flutter:
-    dependency: "direct main"
-    description:
-      name: charts_flutter
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "0.9.0"
   checked_yaml:
     dependency: transitive
     description:
@@ -352,13 +338,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.1.19"
-  intl:
-    dependency: transitive
-    description:
-      name: intl
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "0.16.1"
   io:
     dependency: transitive
     description:
