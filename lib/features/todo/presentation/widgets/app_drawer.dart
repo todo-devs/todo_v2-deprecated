@@ -47,7 +47,10 @@ class AppDrawer extends StatelessWidget {
               drawerTile(
                 'Cuentas',
                 Icons.account_circle_outlined,
-                () {},
+                () {
+                  Navigator.pop(context);
+                  Get.to(TodoAccountsPage());
+                },
               ),
               drawerTile(
                 'Ajustes',
