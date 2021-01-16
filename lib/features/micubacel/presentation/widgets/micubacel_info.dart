@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo/features/micubacel/data/datasources/datasources.dart';
+import 'package:todo/features/micubacel/presentation/bloc/bloc.dart';
 
 class MiCubacelInfo extends StatelessWidget {
   const MiCubacelInfo({
@@ -14,6 +16,7 @@ class MiCubacelInfo extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
+              Text(client.updated),
               ListTile(
                 leading: Container(
                   decoration: BoxDecoration(
@@ -28,8 +31,8 @@ class MiCubacelInfo extends StatelessWidget {
                     size: 32,
                   ),
                 ),
-                title: Text(client.userName),
-                subtitle: Text(client.phone),
+                title: Text(client.phoneNumber),
+                subtitle: Text(client.expire),
                 trailing: Text('\$ ${client.credit}'),
               )
             ] +
@@ -54,7 +57,16 @@ class MiCubacelInfo extends StatelessWidget {
                     trailing: Text('${e.restData} ${e.dataInfo}'),
                   ),
                 )
-                .toList(),
+                .toList() +
+            [
+              IconButton(
+                icon: Icon(Icons.refresh),
+                onPressed: () {
+                  BlocProvider.of<MicubacelBloc>(context)
+                      .add(UpdateMicubacelData());
+                },
+              )
+            ],
       ),
     );
   }

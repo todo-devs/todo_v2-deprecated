@@ -72,15 +72,17 @@ class _SettingsPageState extends State<SettingsPage> {
                     // activeTrackColor: this.darkMode ? null : Colors.white,
                     value: showWidget,
                     onChanged: (value) {
-                      setState(() {
-                        showWidget = value;
-                      });
-
                       if (value) {
                         setTrueShowWidget();
                       } else {
                         setFalseShowWidget();
                       }
+
+                      getShowWidgetPreference().then((value) {
+                        setState(() {
+                          showWidget = value;
+                        });
+                      });
                     },
                   ),
                 ],
@@ -100,15 +102,17 @@ class _SettingsPageState extends State<SettingsPage> {
                     activeColor: Colors.blue,
                     value: turnOffWifi,
                     onChanged: (value) {
-                      setState(() {
-                        turnOffWifi = value;
-                      });
-
                       if (value) {
                         setTrueTurnOffWifi();
                       } else {
                         setFalseTurnOffWifi();
                       }
+
+                      getTurnOffWifiPreference().then((value) {
+                        setState(() {
+                          turnOffWifi = value;
+                        });
+                      });
                     },
                   ),
                 ],

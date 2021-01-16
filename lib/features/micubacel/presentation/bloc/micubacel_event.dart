@@ -8,3 +8,5 @@ abstract class MicubacelEvent extends Equatable {
 }
 
 class LoadMicubacelData extends MicubacelEvent {}
+
+class UpdateMicubacelData extends MicubacelEvent {}

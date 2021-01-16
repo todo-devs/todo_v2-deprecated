@@ -27,6 +27,8 @@ class MainActivity : FlutterActivity() {
     lateinit var preferences: SharedPreferences
     lateinit var wifiManager: WifiManager
 
+    private var widgetService = Intent(this, FloatingWindow::class.java)
+
     override fun configureFlutterEngine(@NonNull flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
 
@@ -70,7 +72,9 @@ class MainActivity : FlutterActivity() {
             }
         }
 
-        startService(Intent(this, FloatingWindow::class.java))
+        if(getDrawPermissionState() && getShowWidgetPreference()) {
+            startService(this.widgetService)
+        }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1) {
             registerShortcuts()
@@ -120,6 +124,8 @@ class MainActivity : FlutterActivity() {
                 putBoolean("showWidget", true)
                 apply()
             }
+
+            startService(this.widgetService)
         }
     }
 
@@ -128,6 +134,8 @@ class MainActivity : FlutterActivity() {
             putBoolean("showWidget", false)
             apply()
         }
+
+        stopService(this.widgetService)
     }
 
     private fun getShowWidgetPreference(): Boolean {

@@ -22,20 +22,49 @@ class MicubacelBloc extends Bloc<MicubacelEvent, MicubacelState> {
         final active = await UserModel.activeUser;
 
         if (active != null) {
-          final client =
-              CubacelClient(phone: active.phone, password: active.password);
           try {
-            await client.start();
+            final client = await loadClient();
             yield LoadedMicubacelData(client);
-          } on IException catch (e) {
-            yield MiCubacelError(e.message);
-          } catch (e) {
-            print(e);
-            yield MiCubacelError('El sitio micubacel.net está fuera de servicio temporalmente');
+          } on LoadClientException {
+            try {
+              final client =
+                  CubacelClient(phone: active.phone, password: active.password);
+              await client.start();
+              yield LoadedMicubacelData(client);
+              saveClient(client);
+            } on IException catch (e) {
+              print(e.message);
+              yield MiCubacelError('No se pudo acceder a micubacel.net');
+            } catch (e) {
+              print(e);
+              this.add(LoadMicubacelData());
+            }
           }
         } else {
           yield NotActiveUser();
         }
+        break;
+      case UpdateMicubacelData:
+        yield LoadingMicubacelData();
+        final active = await UserModel.activeUser;
+        if (active != null) {
+          try {
+            final client =
+                CubacelClient(phone: active.phone, password: active.password);
+            await client.start();
+            yield LoadedMicubacelData(client);
+            saveClient(client);
+          } on IException catch (e) {
+            print(e.message);
+            yield MiCubacelError('No se pudo acceder a micubacel.net');
+          } catch (e) {
+            print(e);
+            this.add(LoadMicubacelData());
+          }
+        } else {
+          yield NotActiveUser();
+        }
+        break;
     }
   }
 }
