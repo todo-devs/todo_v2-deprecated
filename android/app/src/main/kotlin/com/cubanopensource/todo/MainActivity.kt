@@ -26,14 +26,15 @@ class MainActivity : FlutterActivity() {
     private lateinit var flEngine: FlutterEngine
     lateinit var preferences: SharedPreferences
     lateinit var wifiManager: WifiManager
-
-    private var widgetService = Intent(this, FloatingWindow::class.java)
+    lateinit var widgetService : Intent
 
     override fun configureFlutterEngine(@NonNull flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
 
         preferences = applicationContext.getSharedPreferences("${packageName}_preferences", Activity.MODE_PRIVATE)
         wifiManager = applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
+
+        widgetService = Intent(this, FloatingWindow::class.java)
 
         flEngine = flutterEngine
 
@@ -135,7 +136,7 @@ class MainActivity : FlutterActivity() {
             apply()
         }
 
-        stopService(this.widgetService)
+        // stopService(this.widgetService)
     }
 
     private fun getShowWidgetPreference(): Boolean {
