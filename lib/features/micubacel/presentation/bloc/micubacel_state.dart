@@ -13,6 +13,15 @@ class LoadingMicubacelData extends MicubacelState {}
 
 class MicubacelError extends MicubacelState {}
 
+class NotActiveUser extends MicubacelState {}
+
+class MiCubacelError extends MicubacelState {
+  final String message;
+
+  MiCubacelError(this.message);
+
+}
+
 class LoadedMicubacelData extends MicubacelState {
   final CubacelClient client;
 

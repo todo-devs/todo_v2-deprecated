@@ -7,9 +7,4 @@ abstract class MicubacelEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class LoadMicubacelData extends MicubacelEvent {
-  final String phone;
-  final String password;
-
-  LoadMicubacelData({this.phone, this.password});
-}
+class LoadMicubacelData extends MicubacelEvent {}

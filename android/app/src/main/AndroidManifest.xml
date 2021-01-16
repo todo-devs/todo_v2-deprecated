@@ -14,7 +14,8 @@
 
     <application
         android:icon="@mipmap/launcher_icon"
-        android:label="TODO">
+        android:label="TODO"
+        android:usesCleartextTraffic="true">
         <receiver android:name=".TodoAppWidget">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />

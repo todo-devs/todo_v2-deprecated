@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:todo/core/network/network.dart';
 import 'package:todo/core/services/assets_service.dart';
 import 'package:todo/features/micubacel/presentation/bloc/accounts_bloc.dart';
+import 'package:todo/features/micubacel/presentation/bloc/bloc.dart';
 import 'package:todo/features/todo/data/repositories/repositories.dart';
 import 'package:todo/features/todo/domain/repositories/repositories.dart';
 import 'package:todo/features/todo/domain/services/services.dart';
@@ -121,5 +122,6 @@ class DependencyInjection {
 
     //* micubacel
     I.registerFactory(() => AccountsBloc());
+    I.registerFactory(() => MicubacelBloc());
   }
 }
