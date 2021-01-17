@@ -3,9 +3,12 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:meta/meta.dart';
 import 'package:todo/core/failures/exceptions.dart';
+import 'package:todo/features/ussd_codes/data/models/models.dart';
+import 'package:todo/features/ussd_codes/domain/entities/entities.dart';
 
 abstract class IUssdCodesRemoteDataSource {
-  Future<String> getUssdCodes();
+  Future<List<UssdItem>> getUssdCodes();
+
   Future<String> getHash();
 }
 
@@ -26,8 +29,11 @@ class UssdCodesRemoteDataSource implements IUssdCodesRemoteDataSource {
   }
 
   @override
-  Future<String> getUssdCodes() async {
-    return _getData(USSD_CODES_REMOTE);
+  Future<List<UssdItem>> getUssdCodes() async {
+    final jsonString = await _getData(USSD_CODES_REMOTE);
+    final jsonMap = json.decode(jsonString);
+    jsonMap['type'] = 'category';
+    return UssdCategoryModel.fromJson(jsonMap).items;
   }
 
   Future<String> _getData(String url) async {

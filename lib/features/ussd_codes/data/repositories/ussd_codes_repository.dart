@@ -35,7 +35,7 @@ class UssdCodesRepository implements IUssdCodesRepository {
   }
 
   @override
-  Future<Result<String>> getRemoteUssdCodes() async {
+  Future<Result<List<UssdItem>>> getRemoteUssdCodes() async {
     try {
       final result = await ussdCodesRemoteDataSource.getUssdCodes();
       return Result(isOk: true, data: result);

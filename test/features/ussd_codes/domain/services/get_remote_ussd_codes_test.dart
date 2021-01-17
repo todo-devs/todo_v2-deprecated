@@ -1,5 +1,5 @@
-import 'package:mockito/mockito.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mockito/mockito.dart';
 import 'package:todo/core/classes/classes.dart';
 import 'package:todo/core/services/services.dart';
 import 'package:todo/features/ussd_codes/domain/repositories/repositories.dart';
@@ -18,7 +18,7 @@ void main() {
     service = GetRemoteUssdCodes(repository: mockUssdCodesRepository);
   });
 
-  final tData = fixtureUssdCodes();
+  final tData = fixtureUssdCodesAsListUssdItem();
 
   test('Should get ussd code list from repository', () async {
     final repositoryResult = Result(isOk: true, data: tData);
