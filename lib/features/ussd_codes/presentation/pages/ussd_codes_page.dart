@@ -14,8 +14,7 @@ class UssdCodesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) =>
-          GetIt.I.get<UssdCodesBloc>()..add(GetLocalUssdCodesEvent()),
+      create: (_) => GetIt.I.get<UssdCodesBloc>()..add(InitialUssdCodesEvent()),
       child: Center(
         child: SingleChildScrollView(
           child: Column(

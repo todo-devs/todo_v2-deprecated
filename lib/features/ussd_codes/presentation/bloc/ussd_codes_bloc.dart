@@ -35,10 +35,27 @@ class UssdCodesBloc extends Bloc<UssdCodesEvent, UssdCodesState> {
         super(UssdCodesInitial());
 
   @override
-  Stream<UssdCodesState> mapEventToState(
-    UssdCodesEvent event,
-  ) async* {
+  Stream<UssdCodesState> mapEventToState(UssdCodesEvent event) async* {
     switch (event.runtimeType) {
+      case InitialUssdCodesEvent:
+        final resultLocalHash = await getLocalUssdCodesHash(NoParams());
+        final resultRemoteHash = await getRemoteUssdCodesHash(NoParams());
+        if (resultLocalHash.isOk &&
+            resultRemoteHash.isOk &&
+            (resultLocalHash.data == null ||
+                resultLocalHash.data != resultRemoteHash.data)) {
+          final resultRemote = await getRemoteUssdCodes(NoParams());
+          if (resultRemote.isOk) {
+            await saveUssdCodes(
+              Params(
+                items: resultRemote.data,
+                hash: resultRemoteHash.data,
+              ),
+            );
+          }
+        }
+        this.add(GetLocalUssdCodesEvent());
+        break;
       case GetAssetsUssdCodesEvent:
         final result = await getAssetsUssdCodes(NoParams());
         if (result.isOk) {
