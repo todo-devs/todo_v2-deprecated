@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:meta/meta.dart';
+import 'package:todo/core/classes/classes.dart';
 import 'package:todo/core/failures/failures.dart';
 import 'package:todo/features/ussd_codes/data/datasources/datasources.dart';
 import 'package:todo/features/ussd_codes/domain/entities/entities.dart';
-import 'package:todo/core/classes/classes.dart';
 import 'package:todo/features/ussd_codes/domain/repositories/repositories.dart';
 
 class UssdCodesRepository implements IUssdCodesRepository {
@@ -29,7 +29,10 @@ class UssdCodesRepository implements IUssdCodesRepository {
   Future<Result<List<UssdItem>>> getLocalUssdCodes() async {
     try {
       final result = await ussdCodesLocalDataSource.getUssdCodes();
-      return Result(isOk: true, data: result);
+      if (result != null) {
+        return Result(isOk: true, data: result);
+      }
+      return Result(isOk: false, data: null, failure: UssdCodesCacheFailure());
     } on UssdCodesCacheException {
       return Result(isOk: false, data: null, failure: UssdCodesCacheFailure());
     }
