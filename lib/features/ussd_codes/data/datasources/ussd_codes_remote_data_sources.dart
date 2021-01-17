@@ -36,8 +36,9 @@ class UssdCodesRemoteDataSource implements IUssdCodesRemoteDataSource {
     return UssdCategoryModel.fromJson(jsonMap).items;
   }
 
-  Future<String> _getData(String url) async {
-    final response = await httpClient.get(
+  Future<String> _getData(String url) {
+    return httpClient
+        .get(
       url,
       options: Options(
         headers: {
@@ -45,17 +46,23 @@ class UssdCodesRemoteDataSource implements IUssdCodesRemoteDataSource {
           'Content-Type': 'application/json',
         },
       ),
+    )
+        .then(
+      (response) {
+        if (response.statusCode == 200) {
+          final body = response.data as Map<String, dynamic>;
+          return json.encode(body);
+        } else {
+          throw UssdCodesServerException(
+            'Request failed: ${response.request.uri}\n'
+            'StatusCode: ${response.statusCode}\n'
+            'Body: ${response.data}',
+          );
+        }
+      },
+    ).timeout(
+      Duration(seconds: 5),
+      onTimeout: () => throw DioError(),
     );
-
-    if (response.statusCode == 200) {
-      final body = response.data as Map<String, dynamic>;
-      return json.encode(body);
-    } else {
-      throw UssdCodesServerException(
-        'Request failed: ${response.request.uri}\n'
-        'StatusCode: ${response.statusCode}\n'
-        'Body: ${response.data}',
-      );
-    }
   }
 }
