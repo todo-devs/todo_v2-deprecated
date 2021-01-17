@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:todo/core/platform_channels/platform_channels.dart';
 import 'package:todo/core/utils/icons.dart';
 import 'package:todo/features/ussd_codes/domain/entities/entities.dart';
-import 'package:get/get.dart';
-import 'package:get/get_navigation/get_navigation.dart' as GetNV;
 import 'package:todo/features/ussd_codes/presentation/pages/pages.dart';
 
 class UssdItemWidget extends StatelessWidget {
@@ -32,10 +31,13 @@ class UssdItemWidget extends StatelessWidget {
         ),
         height: 64,
         width: 57,
-        child: Icon(
-          strIcons[ussdItem.icon],
-          size: 32,
-          color: Colors.white,
+        child: Hero(
+          tag: ussdItem.name + ussdItem.description,
+          child: Icon(
+            strIcons[ussdItem.icon],
+            size: 32,
+            color: Colors.white,
+          ),
         ),
       ),
       trailing: ussdItem.type == 'category'

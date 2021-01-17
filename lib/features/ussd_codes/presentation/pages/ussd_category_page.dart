@@ -37,12 +37,15 @@ class UssdCategoryPage extends StatelessWidget {
               SizedBox(
                 height: 15,
               ),
-              Icon(
-                strIcons[category.icon],
-                size: 82,
-                color: Theme.of(context).brightness == Brightness.dark
-                    ? Colors.white
-                    : Colors.blue,
+              Hero(
+                tag: category.name + category.description,
+                child: Icon(
+                  strIcons[category.icon],
+                  size: 82,
+                  color: Theme.of(context).brightness == Brightness.dark
+                      ? Colors.white
+                      : Colors.blue,
+                ),
               ),
               SizedBox(
                 height: 15,
