@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:theme_provider/theme_provider.dart';
-import 'package:todo/core/i18n.dart';
+// import 'package:todo/core/i18n.dart';
 import 'package:todo/features/todo/presentation/pages/pages.dart';
 import 'package:get/get_core/get_core.dart';
 import 'package:get/get_navigation/get_navigation.dart';
@@ -31,7 +31,7 @@ class AppDrawer extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        Keys.app_name.tr(),
+                        'TODO',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
@@ -47,7 +47,10 @@ class AppDrawer extends StatelessWidget {
               drawerTile(
                 'Cuentas',
                 Icons.account_circle_outlined,
-                () {},
+                () {
+                  Navigator.pop(context);
+                  Get.to(TodoAccountsPage());
+                },
               ),
               drawerTile(
                 'Ajustes',

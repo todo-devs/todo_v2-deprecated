@@ -59,30 +59,34 @@ class _SettingsPageState extends State<SettingsPage> {
                 text: 'Activar widget flotante',
                 value: showWidget,
                 onChanged: (value) {
-                  setState(() {
-                    showWidget = value;
-                  });
-
                   if (value) {
                     setTrueShowWidget();
                   } else {
                     setFalseShowWidget();
                   }
+
+                  getShowWidgetPreference().then((value) {
+                    setState(() {
+                      showWidget = value;
+                    });
+                  });
                 },
               ),
               SettingSwitch(
                 text: 'Apagar wifi al desconectar',
                 value: turnOffWifi,
                 onChanged: (value) {
-                  setState(() {
-                    turnOffWifi = value;
-                  });
-
                   if (value) {
                     setTrueTurnOffWifi();
                   } else {
                     setFalseTurnOffWifi();
                   }
+
+                  getTurnOffWifiPreference().then((value) {
+                    setState(() {
+                      turnOffWifi = value;
+                    });
+                  });
                 },
               ),
               SizedBox(height: 30),
