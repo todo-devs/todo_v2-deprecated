@@ -44,7 +44,10 @@ class _TodoLicensePageState extends State<TodoLicensePage> {
             SizedBox(
               height: 20,
             ),
-            Text(licenceText),
+            Container(
+              margin: EdgeInsets.all(20),
+              child: Text(licenceText),
+            ),
             SizedBox(
               height: 20,
             ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:todo/core/platform_channels/platform_channels.dart';
 import 'package:todo/features/todo/presentation/pages/pages.dart';
+import 'package:todo/features/todo/presentation/widgets/widgets.dart';
 
 class SettingsPage extends StatefulWidget {
   @override
@@ -53,121 +54,52 @@ class _SettingsPageState extends State<SettingsPage> {
           padding: const EdgeInsets.all(30.0),
           child: Column(
             children: [
-              SizedBox(
-                height: 30,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: Text(
-                      'Activar widget flotante',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  Switch(
-                    activeColor: Colors.blue,
-                    // activeTrackColor: this.darkMode ? null : Colors.white,
-                    value: showWidget,
-                    onChanged: (value) {
-                      setState(() {
-                        showWidget = value;
-                      });
+              SizedBox(height: 30),
+              SettingSwitch(
+                text: 'Activar widget flotante',
+                value: showWidget,
+                onChanged: (value) {
+                  setState(() {
+                    showWidget = value;
+                  });
 
-                      if (value) {
-                        setTrueShowWidget();
-                      } else {
-                        setFalseShowWidget();
-                      }
-                    },
-                  ),
-                ],
+                  if (value) {
+                    setTrueShowWidget();
+                  } else {
+                    setFalseShowWidget();
+                  }
+                },
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: Text(
-                      'Apagar wifi al desconectar',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  Switch(
-                    activeColor: Colors.blue,
-                    value: turnOffWifi,
-                    onChanged: (value) {
-                      setState(() {
-                        turnOffWifi = value;
-                      });
+              SettingSwitch(
+                text: 'Apagar wifi al desconectar',
+                value: turnOffWifi,
+                onChanged: (value) {
+                  setState(() {
+                    turnOffWifi = value;
+                  });
 
-                      if (value) {
-                        setTrueTurnOffWifi();
-                      } else {
-                        setFalseTurnOffWifi();
-                      }
-                    },
-                  ),
-                ],
+                  if (value) {
+                    setTrueTurnOffWifi();
+                  } else {
+                    setFalseTurnOffWifi();
+                  }
+                },
               ),
-              SizedBox(
-                height: 30,
-              ),
-              GestureDetector(
-                onTap: () {
+              SizedBox(height: 30),
+              SettingButton(
+                text: 'Términos de uso',
+                icon: Icons.verified_user,
+                onPressed: () {
                   Get.back();
                 },
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Container(
-                      margin: EdgeInsets.symmetric(horizontal: 15),
-                      child: Icon(
-                        Icons.verified_user,
-                        color: Colors.blue,
-                      ),
-                    ),
-                    Expanded(
-                      child: Text(
-                        'Términos de uso',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
               ),
-              SizedBox(
-                height: 20,
-              ),
-              GestureDetector(
-                onTap: () {
+              SizedBox(height: 10),
+              SettingButton(
+                text: 'Licencia LPTL',
+                icon: Icons.verified_user,
+                onPressed: () {
                   Get.to(TodoLicensePage());
                 },
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Container(
-                      margin: EdgeInsets.symmetric(horizontal: 15),
-                      child: Icon(
-                        Icons.verified_user,
-                        color: Colors.blue,
-                      ),
-                    ),
-                    Expanded(
-                      child: Text(
-                        'Licencia LPTL',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
               ),
             ],
           ),
@@ -178,7 +110,12 @@ class _SettingsPageState extends State<SettingsPage> {
         children: [
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text(appVersion),
+            child: Text(
+              appVersion,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
           )
         ],
       ),

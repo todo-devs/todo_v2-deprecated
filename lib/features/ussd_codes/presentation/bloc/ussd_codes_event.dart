@@ -7,6 +7,10 @@ abstract class UssdCodesEvent extends Equatable {
   List<Object> get props => [];
 }
 
+class InitialUssdCodesEvent extends UssdCodesEvent {
+  const InitialUssdCodesEvent();
+}
+
 class GetAssetsUssdCodesEvent extends UssdCodesEvent {}
 
 class GetLocalUssdCodesEvent extends UssdCodesEvent {}
