@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:todo/core/i18n.dart';
 import 'package:todo/features/todo/presentation/widgets/widgets.dart';
 import 'package:todo/features/ussd_codes/presentation/pages/pages.dart';
-import 'package:todo/core/i18n.dart';
 
 class HomePage extends StatefulWidget {
   @override
