@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:meta/meta.dart';
 import 'package:todo/core/failures/failures.dart';
 import 'package:todo/features/ussd_codes/data/datasources/datasources.dart';
@@ -45,6 +46,12 @@ class UssdCodesRepository implements IUssdCodesRepository {
         data: null,
         failure: UssdCodesServerFailure(e.message),
       );
+    } on DioError catch (e) {
+      return Result(
+        isOk: false,
+        data: null,
+        failure: UssdCodesServerFailure(e.message),
+      );
     }
   }
 
@@ -60,6 +67,12 @@ class UssdCodesRepository implements IUssdCodesRepository {
       final result = await ussdCodesRemoteDataSource.getHash();
       return Result(isOk: true, data: result);
     } on UssdCodesServerException catch (e) {
+      return Result(
+        isOk: false,
+        data: null,
+        failure: UssdCodesServerFailure(e.message),
+      );
+    } on DioError catch (e) {
       return Result(
         isOk: false,
         data: null,
