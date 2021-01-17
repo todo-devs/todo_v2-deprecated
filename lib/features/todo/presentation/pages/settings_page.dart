@@ -94,7 +94,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 text: 'Términos de uso',
                 icon: Icons.verified_user,
                 onPressed: () {
-                  Get.back();
+                  Get.to(TodoDisclaimerPage());
                 },
               ),
               SizedBox(height: 10),
