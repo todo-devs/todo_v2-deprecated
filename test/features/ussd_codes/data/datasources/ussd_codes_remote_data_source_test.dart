@@ -1,13 +1,13 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
-import 'package:dio/src/response.dart';
 import 'package:dio/native_imp.dart';
+import 'package:dio/src/response.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:matcher/matcher.dart';
 import 'package:mockito/mockito.dart';
 import 'package:todo/core/failures/exceptions.dart';
 import 'package:todo/features/ussd_codes/data/datasources/datasources.dart';
-import 'package:matcher/matcher.dart';
 
 import '../../../../fixtures/fixture_reader.dart';
 
@@ -30,9 +30,9 @@ void main() {
       test(
         '- Should return valid data from remote server',
         () async {
+          final expectedResult = fixtureUssdCodesAsListUssdItem();
           final jsonString = fixtureUssdCodes();
           final jsonMap = json.decode(jsonString);
-          final expectedString = json.encode(jsonMap);
 
           when(mockDio.get(any, options: anyNamed('options'))).thenAnswer(
             (_) async => Response(
@@ -44,7 +44,10 @@ void main() {
           final result = await ussdCodesLocalDataSource.getUssdCodes();
 
           verify(mockDio.get(USSD_CODES_REMOTE, options: anyNamed('options')));
-          expect(result, equals(expectedString));
+          expect(result.length, equals(expectedResult.length));
+          for (var i = 0; i < result.length; ++i) {
+            expect(result[i], equals(expectedResult[i]));
+          }
         },
       );
 

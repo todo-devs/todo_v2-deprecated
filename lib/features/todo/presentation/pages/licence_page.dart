@@ -44,8 +44,8 @@ class _TodoLicensePageState extends State<TodoLicensePage> {
             SizedBox(
               height: 20,
             ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
+            Container(
+              margin: EdgeInsets.all(20),
               child: Text(licenceText),
             ),
             SizedBox(

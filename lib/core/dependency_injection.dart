@@ -33,6 +33,7 @@ class DependencyInjection {
         getRemoteUssdCodes: I(),
         getLocalUssdCodesHash: I(),
         getRemoteUssdCodesHash: I(),
+        saveUssdCodes: I(),
       ),
     );
 
@@ -69,6 +70,12 @@ class DependencyInjection {
 
     I.registerLazySingleton(
       () => GetLocalUssdCodesHash(
+        repository: I(),
+      ),
+    );
+
+    I.registerLazySingleton(
+      () => SaveUssdCodes(
         repository: I(),
       ),
     );

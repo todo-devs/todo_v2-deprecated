@@ -7,7 +7,7 @@ class UssdCodeForm extends StatefulWidget {
   final List<UssdCodeField> fields;
   final String code;
   final String type;
-  final Icon icon;
+  final Widget icon;
 
   UssdCodeForm({this.code, this.fields, this.type, this.icon});
 
