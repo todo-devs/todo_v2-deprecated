@@ -23,7 +23,13 @@ class MiCubacelWidget extends StatelessWidget {
               return MiCubacelInfo(client: client);
             case MiCubacelError:
               final message = (state as MiCubacelError).message;
-              return Text(message);
+
+              3.seconds.delay().then((value) {
+                BlocProvider.of<MicubacelBloc>(context)
+                    .add(LoadMicubacelData());
+              });
+
+              return Center(child: Text(message));
             case NotActiveUser:
               return Column(
                 children: [

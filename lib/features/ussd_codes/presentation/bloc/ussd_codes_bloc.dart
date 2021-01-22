@@ -39,21 +39,26 @@ class UssdCodesBloc extends Bloc<UssdCodesEvent, UssdCodesState> {
     switch (event.runtimeType) {
       case InitialUssdCodesEvent:
         final resultLocalHash = await getLocalUssdCodesHash(NoParams());
-        final resultRemoteHash = await getRemoteUssdCodesHash(NoParams());
-        if (resultLocalHash.isOk &&
-            resultRemoteHash.isOk &&
-            (resultLocalHash.data == null ||
-                resultLocalHash.data != resultRemoteHash.data)) {
-          final resultRemote = await getRemoteUssdCodes(NoParams());
-          if (resultRemote.isOk) {
-            await saveUssdCodes(
-              Params(
-                items: resultRemote.data,
-                hash: resultRemoteHash.data,
-              ),
-            );
+
+        getRemoteUssdCodesHash(NoParams()).then((resultRemoteHash) async {
+          if (resultLocalHash.isOk &&
+              resultRemoteHash.isOk &&
+              (resultLocalHash.data == null ||
+                  resultLocalHash.data != resultRemoteHash.data)) {
+            final resultRemote = await getRemoteUssdCodes(NoParams());
+            if (resultRemote.isOk) {
+              await saveUssdCodes(
+                Params(
+                  items: resultRemote.data,
+                  hash: resultRemoteHash.data,
+                ),
+              );
+
+              this.add(GetLocalUssdCodesEvent());
+            }
           }
-        }
+        });
+
         this.add(GetLocalUssdCodesEvent());
         break;
       case GetAssetsUssdCodesEvent:
