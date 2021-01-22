@@ -11,14 +11,19 @@ Future<CubacelClient> loadClient() async {
   String data = sharedPreferences.getString('micubacel_data');
 
   if (data == null) throw LoadClientException();
+  if (data == '') throw LoadClientException();
 
-  Map<String, dynamic> dataMap = json.decode(data);
+  try {
+    Map<String, dynamic> dataMap = json.decode(data);
 
-  final client = CubacelClient();
+    final client = CubacelClient();
 
-  client.loadFromJson(dataMap);
+    client.loadFromJson(dataMap);
 
-  return client;
+    return client;
+  } on Exception {
+    throw LoadClientException();
+  }
 }
 
 void saveClient(CubacelClient client) async {
