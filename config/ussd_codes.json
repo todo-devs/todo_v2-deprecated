@@ -487,32 +487,32 @@
               "code": "*222*767#"
             },
             {
-              "name": "10 sms",
-              "description": "10 SMS nacionales por $17.5 CUP",
+              "name": "20 sms",
+              "description": "20 SMS nacionales por $15 CUP",
               "icon": "sms",
               "type": "code",
               "fields": [],
               "code": "*133*2*1#"
             },
             {
-              "name": "20 sms",
-              "description": "20 SMS nacionales por $32.5 CUP",
+              "name": "50 sms",
+              "description": "50 SMS nacionales por $30 CUP",
               "icon": "sms",
               "type": "code",
               "fields": [],
               "code": "*133*2*2#"
             },
             {
-              "name": "35 sms",
-              "description": "35 SMS nacionales por $52.5 CUP",
+              "name": "90 sms",
+              "description": "90 SMS nacionales por $50 CUP",
               "icon": "sms",
               "type": "code",
               "fields": [],
               "code": "*133*2*3#"
             },
             {
-              "name": "45 sms",
-              "description": "45 SMS nacionales por $62.5 CUP",
+              "name": "120 sms",
+              "description": "120 SMS nacionales por $60 CUP",
               "icon": "sms",
               "type": "code",
               "fields": [],
