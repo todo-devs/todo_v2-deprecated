@@ -247,7 +247,15 @@
           "type": "category",
           "items": [
             {
-              "name": "600 MB + 800 MB LTE - $125 CUP",
+              "name": "Consultar saldo",
+              "description": "Consulta tu saldo",
+              "icon": "attach_money",
+              "type": "code",
+              "fields": [],
+              "code": "*222#"
+            },
+            {
+              "name": "600 MB + 800 MB solo LTE - $125 CUP",
               "description": "+ 15min VOZ + 20 SMS + 300 MB .cu",
               "icon": "data_usage",
               "type": "code",
@@ -255,7 +263,7 @@
               "code": "*133*5*1#"
             },
             {
-              "name": "1.5 GB + 2 GB LTE - $250 CUP",
+              "name": "1.5 GB + 2 GB solo LTE - $250 CUP",
               "description": "+ 35min VOZ + 40 SMS + 300 MB .cu",
               "icon": "data_usage",
               "type": "code",
@@ -263,7 +271,7 @@
               "code": "*133*5*2#"
             },
             {
-              "name": "3.5 GB + 4.5 GB LTE - $500 CUP",
+              "name": "3.5 GB + 4.5 GB solo LTE - $500 CUP",
               "description": "+ 75min VOZ + 80 SMS + 300 MB .cu",
               "icon": "data_usage",
               "type": "code",
@@ -319,13 +327,21 @@
               "code": "*133*1*2#"
             },
             {
-              "name": "Líneas USIM (nuevas)",
+              "name": "SOLO Líneas USIM con LTE (nuevas)",
               "description": "Paquetes de internet para usuarios que tienen activado el servicio LTE.",
               "icon": "data_usage",
               "type": "category",
               "items": [
                 {
-                  "name": "1 GB LTE - $100 CUP",
+                  "name": "Bolsa Diaria - $25 CUP",
+                  "description": "200 MB (vence en 24h)",
+                  "icon": "data_usage",
+                  "type": "code",
+                  "fields": [],
+                  "code": "*133*1*3#"
+                },
+                {
+                  "name": "1 GB solo LTE - $100 CUP",
                   "description": "+300 MB bono .cu",
                   "icon": "data_usage",
                   "type": "code",
@@ -333,7 +349,7 @@
                   "code": "*133*1*4*1#"
                 },
                 {
-                  "name": "2.5 GB LTE - $200 CUP",
+                  "name": "2.5 GB solo LTE - $200 CUP",
                   "description": "+300 MB bono .cu",
                   "icon": "data_usage",
                   "type": "code",
@@ -341,60 +357,12 @@
                   "code": "*133*1*4*2#"
                 },
                 {
-                  "name": "4 GB + 12 GB LTE - $950 CUP",
+                  "name": "4 GB + 12 GB solo LTE - $950 CUP",
                   "description": "+300 MB bono .cu",
                   "icon": "data_usage",
                   "type": "code",
                   "fields": [],
                   "code": "*133*1*4*3#"
-                }
-              ]
-            },
-            {
-              "name": "Líneas SIM (tradicionales)",
-              "description": "Paquetes de internet para usuarios que no han activado el servicio LTE.",
-              "icon": "data_usage",
-              "type": "category",
-              "items": [
-                {
-                  "name": "400 MB - $125 CUP",
-                  "description": "+300 MB bono .cu",
-                  "icon": "data_usage",
-                  "type": "code",
-                  "fields": [],
-                  "code": "*133*1*3*1#"
-                },
-                {
-                  "name": "600 MB - $175 CUP",
-                  "description": "+300 MB bono .cu",
-                  "icon": "data_usage",
-                  "type": "code",
-                  "fields": [],
-                  "code": "*133*1*3*2#"
-                },
-                {
-                  "name": "1 GB - $250 CUP",
-                  "description": "+300 MB bono .cu",
-                  "icon": "data_usage",
-                  "type": "code",
-                  "fields": [],
-                  "code": "*133*1*3*3#"
-                },
-                {
-                  "name": "2.5 GB - $500 CUP",
-                  "description": "+300 MB bono .cu",
-                  "icon": "data_usage",
-                  "type": "code",
-                  "fields": [],
-                  "code": "*133*1*3*4#"
-                },
-                {
-                  "name": "4 GB - $750 CUP",
-                  "description": "+300 MB bono .cu",
-                  "icon": "data_usage",
-                  "type": "code",
-                  "fields": [],
-                  "code": "*133*1*3*5#"
                 }
               ]
             }
