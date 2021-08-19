@@ -241,6 +241,38 @@
       "type": "category",
       "items": [
         {
+          "name": "Planes Combinados",
+          "description": "Gestiona tu plan combinado de Datos+Voz+SMS",
+          "icon": "data_usage",
+          "type": "category",
+          "items": [
+            {
+              "name": "600 MB + 800 MB LTE - $125 CUP",
+              "description": "+ 15min VOZ + 20 SMS + 300 MB .cu",
+              "icon": "data_usage",
+              "type": "code",
+              "fields": [],
+              "code": "*133*5*1#"
+            },
+            {
+              "name": "1.5 GB + 2 GB LTE - $250 CUP",
+              "description": "+ 35min VOZ + 40 SMS + 300 MB .cu",
+              "icon": "data_usage",
+              "type": "code",
+              "fields": [],
+              "code": "*133*5*2#"
+            },
+            {
+              "name": "3.5 GB + 4.5 GB LTE - $500 CUP",
+              "description": "+ 75min VOZ + 80 SMS + 300 MB .cu",
+              "icon": "data_usage",
+              "type": "code",
+              "fields": [],
+              "code": "*133*5*3#"
+            }
+          ]
+        },
+        {
           "name": "Planes de Datos",
           "description": "Gestiona tu plan de datos",
           "icon": "data_usage",
@@ -293,76 +325,28 @@
               "type": "category",
               "items": [
                 {
-                  "name": "Bolsa Diaria - $25 CUP",
-                  "description": "200 MB (vence en 24h)",
-                  "icon": "data_usage",
-                  "type": "code",
-                  "fields": [],
-                  "code": "*133*1*3#"
-                },
-                {
-                  "name": "400 MB - $125 CUP",
-                  "description": "+500 MB bono 4G +300 MB bono .cu",
+                  "name": "1 GB LTE - $100 CUP",
+                  "description": "+300 MB bono .cu",
                   "icon": "data_usage",
                   "type": "code",
                   "fields": [],
                   "code": "*133*1*4*1#"
                 },
                 {
-                  "name": "600 MB - $175 CUP",
-                  "description": "+800 MB bono 4G +300 MB bono .cu",
+                  "name": "2.5 GB LTE - $200 CUP",
+                  "description": "+300 MB bono .cu",
                   "icon": "data_usage",
                   "type": "code",
                   "fields": [],
                   "code": "*133*1*4*2#"
                 },
                 {
-                  "name": "1 GB - $250 CUP",
-                  "description": "+1.5 GB bono 4G +300 MB bono .cu",
+                  "name": "4 GB + 12 GB LTE - $950 CUP",
+                  "description": "+300 MB bono .cu",
                   "icon": "data_usage",
                   "type": "code",
                   "fields": [],
                   "code": "*133*1*4*3#"
-                },
-                {
-                  "name": "2.5 GB - $500 CUP",
-                  "description": "+3 GB bono 4G +300 MB bono .cu",
-                  "icon": "data_usage",
-                  "type": "code",
-                  "fields": [],
-                  "code": "*133*1*4*4#"
-                },
-                {
-                  "name": "4 GB - $750 CUP",
-                  "description": "+5 GB bono 4G +300 MB bono .cu",
-                  "icon": "data_usage",
-                  "type": "code",
-                  "fields": [],
-                  "code": "*133*1*4*5#"
-                },
-                {
-                  "name": "1 GB - $100 CUP",
-                  "description": "+300 MB bono .cu",
-                  "icon": "data_usage",
-                  "type": "code",
-                  "fields": [],
-                  "code": "*133*1*5*1#"
-                },
-                {
-                  "name": "2.5 GB - $200 CUP",
-                  "description": "+300 MB bono .cu",
-                  "icon": "data_usage",
-                  "type": "code",
-                  "fields": [],
-                  "code": "*133*1*5*2#"
-                },
-                {
-                  "name": "14 GB - $1125 CUP",
-                  "description": "+300 MB bono .cu",
-                  "icon": "data_usage",
-                  "type": "code",
-                  "fields": [],
-                  "code": "*133*1*5*3#"
                 }
               ]
             },
@@ -417,7 +401,7 @@
           ]
         },
         {
-          "name": "Planes de voz",
+          "name": "Planes de Voz",
           "description": "Gestiona tu plan de voz",
           "icon": "phone_in_talk",
           "type": "category",
