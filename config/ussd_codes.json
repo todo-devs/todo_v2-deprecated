@@ -1,24 +1,16 @@
 {
   "items": [
     {
-      "name": "Consultar saldo",
-      "description": "Consulta tu saldo",
+      "name": "Consultar saldo y planes contratados",
+      "description": "Consulta tu saldo y planes contratados, todo a la vez",
       "icon": "attach_money",
       "type": "code",
       "fields": [],
       "code": "*222#"
     },
     {
-      "name": "Consultar datos",
-      "description": "Consulta los megas disponibles",
-      "icon": "data_usage",
-      "type": "code",
-      "fields": [],
-      "code": "*222*328#"
-    },
-    {
       "name": "Consultar bono",
-      "description": "Consulta el estado de tu bono",
+      "description": "Consulta el estado de tu bono (Ej: El bono .cu)",
       "icon": "star_border",
       "type": "code",
       "fields": [],
@@ -247,8 +239,8 @@
           "type": "category",
           "items": [
             {
-              "name": "Consultar saldo",
-              "description": "Consulta tu saldo",
+              "name": "Consultar saldo y planes contratados",
+              "description": "Consulta tu saldo y planes contratados, todo a la vez",
               "icon": "attach_money",
               "type": "code",
               "fields": [],
